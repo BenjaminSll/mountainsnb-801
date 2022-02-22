@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+.hp-container {
+  width: 900px;
+  margin: 0 auto;
+}
+.mountains_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 8px;
+}
+
+.item {
+  width: 200px;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 5px rgb(230,230,230);
+  border: 1px solid rgb(230,230,230);
+}
+
+.item img {
+  height: 100px;
+}
