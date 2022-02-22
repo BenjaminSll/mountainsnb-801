@@ -1,17 +1,22 @@
-<h1 class="text-center"><%=@mountain.name%></h1>
+<h1 class="text-center mt-3"><%=@mountain.name%></h1>
+<div class="mshow-container">
 
-<div class="text-center container">
-  <%= cl_image_tag("qifzmmfjf1nz5mtambr8",
-        width: 400, height: 300, crop: :fill) %>
-</div>
+  <div class="vignette text-center container">
+    <%= cl_image_tag("qifzmmfjf1nz5mtambr8",
+          width: 400, height: 300, crop: :fill) %>
+  </div>
 
-<div class="text-center mt-5">
-  <p><%= @mountain.range %></p>
-  <p>Height: <%= @mountain.height.floor %> meters</p>
-  <p>Country: <%= @mountain.location %></p>
-  <p><%= @mountain.terrain %></p>
-  <p><%= @mountain.trails %></p>
-  <p><%= @mountain.difficulty %></p>
-  <p><%= @mountain.price.floor %></p>
-
+  <div class="minfo1 text-center">
+    <p>In the middle of: <strong><%= @mountain.range %>, <%= @mountain.location %></strong></p>
+    <p><em><%= @mountain.height.floor %></em> meters high</p>
+    <p>You might encounter: <%= @mountain.terrain.upcase %></p>
+    <p>
+    <% if @mountain.trails.to_i > 1 %>
+        <%= @mountain.trails %> trails to follow !
+    <% else %>
+        <%= @mountain.trails %> trail to follow !
+    <% end %></p>
+    <p>Spoil: <%= @mountain.difficulty %></p>
+    <p class="prix"><%= @mountain.price.floor %> € for 2 nights</p>
+  </div>
 </div>
