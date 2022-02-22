@@ -18,7 +18,7 @@ puts "seeding database..."
 end
 
 27.times do
-  m = Mountain.new(name: Faker::Mountain.name, range: Faker::Mountain.range, height: rand(2000.0..8800.0), location: %w(Afghanistan Angola Armenia Bhutan Bolivia Canada Chile China Guatemala India Indonesia Iran Peru Russia Tanzania USA Venezuela).sample, terrain: %w(rock forest ice).sample, trails: rand(1..3), difficulty: ['health walk', 'breath breaker', 'sunday jogging', 'for olympic athletes and astronauts'].sample, price: rand(600.00..1500.00))
+  m = Mountain.new(user_id: rand(1..25), name: Faker::Mountain.name, range: Faker::Mountain.range, height: rand(2000.0..8800.0), location: %w(Afghanistan Angola Armenia Bhutan Bolivia Canada Chile China Guatemala India Indonesia Iran Peru Russia Tanzania USA Venezuela).sample, terrain: %w(rock forest ice).sample, trails: rand(1..3), difficulty: ['health walk', 'breath breaker', 'sunday jogging', 'for olympic athletes and astronauts'].sample, price: rand(600.00..1500.00))
   if m.save
     puts '1 mountain has risen'
   else
