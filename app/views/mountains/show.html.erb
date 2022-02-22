@@ -1,1 +1,17 @@
-<h1><%=@mountain.name%></h1>
+<h1 class="text-center"><%=@mountain.name%></h1>
+
+<div class="text-center container">
+  <%= cl_image_tag("qifzmmfjf1nz5mtambr8",
+        width: 400, height: 300, crop: :fill) %>
+</div>
+
+<div class="text-center mt-5">
+  <p><%= @mountain.range %></p>
+  <p>Height: <%= @mountain.height.floor %> meters</p>
+  <p>Country: <%= @mountain.location %></p>
+  <p><%= @mountain.terrain %></p>
+  <p><%= @mountain.trails %></p>
+  <p><%= @mountain.difficulty %></p>
+  <p><%= @mountain.price.floor %></p>
+
+</div>

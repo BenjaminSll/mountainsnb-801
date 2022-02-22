@@ -5,6 +5,8 @@
       <% @mountains.each do |mountain| %>
         <%= link_to mountain_path(mountain) do %>
           <li><%= mountain.name %> - <small><%= mountain.price %></small></li>
+          <%= cl_image_tag("qifzmmfjf1nz5mtambr8",
+      width: 400, height: 300, crop: :fill) %>
         <% end %>
       <% end %>
     </ul>
