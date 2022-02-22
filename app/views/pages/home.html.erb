@@ -1,13 +1,15 @@
-<div class="container">
-  <div class="mountain_list">
-    <ul>
+<div class="hp-container">
+  <div class="mountains_list">
       <% @mountains.each do |mountain| %>
-        <%= link_to mountain_path(mountain) do %>
-          <li><%= mountain.name %> - <small><%= mountain.price %> - </small></li>
-          <img src=<%"#{mountain.photo}"%> alt="">
-        <% end %>
+
+        <div class="item">
+          <%= link_to mountain_path(mountain) do %>
+            <%= mountain.name %> - <small><%= mountain.price %></small>
+            <%= cl_image_tag("qifzmmfjf1nz5mtambr8") %>
+          <% end %>
+        </div>
+
       <% end %>
-    </ul>
   </div>
 
   <div class="add_a_mountain">
