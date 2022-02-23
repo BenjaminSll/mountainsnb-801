@@ -1,8 +1,10 @@
 <div class="hp-container">
 
-  <button type="button" class= "btn btn-primary">
-    <%= link_to 'Add your mountain', new_mountain_path %>
-  </button>
+  <div class="home-button">
+    <button type="button" class= "btn btn-info py-2 w-50">
+      <h3><%= link_to 'You are god ? Rent your mountain !', new_mountain_path %></h3>
+    </button>
+  </div>
 
   <div class="mountains_list">
       <% @mountains.each do |mountain| %>

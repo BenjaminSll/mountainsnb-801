@@ -1,0 +1,15 @@
+<div class="container w-50 py-5">
+  <h2 class="text-center">Rent your mountain</h2>
+
+  <%= simple_form_for(@mountain) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :range %>
+      <%= f.input :height %>
+      <%= f.input :location%>
+      <%= f.input :terrain %>
+      <%= f.input :trails %>
+      <%= f.input :difficulty %>
+      <%= f.input :price %>
+      <%= f.submit %>
+    <% end %>
+</div>
