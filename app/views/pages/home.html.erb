@@ -1,3 +1,7 @@
+<% images = [ "https://source.unsplash.com/collection/1705422/random","https://source.unsplash.com/collection/1705422/random""https://source.unsplash.com/collection/1705422/random""https://source.unsplash.com/collection/1705422/random""https://source.unsplash.com/collection/1705422/random""https://source.unsplash.com/collection/1705422/random" ]%>
+
+
+
 <div class="hp-container">
 
   <div class="home-button">
@@ -11,13 +15,13 @@
         <div class="item">
           <%= link_to mountain_path(mountain) do %>
             <div class="item-image">
-              <%= cl_image_tag("qifzmmfjf1nz5mtambr8") %>
+              <img src="<%= mountain.photo_url %>">
             </div>
             <div class="item-text">
               <h4><%= mountain.name %></h4>
               <p>located in:</p>
               <p><%= mountain.range.upcase %></p>
-              <p><%= mountain.height.floor %> meters</p>
+              <p><%= mountain.height&.floor %> meters</p>
               <small><%= mountain.price.floor %>$</small>
             </div>
           <% end %>
