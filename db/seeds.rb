@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+require 'httpclient'
 
 puts "clean DB"
 
@@ -26,6 +28,10 @@ User.create(email: 'admin@mountain.com', password: '123456', first_name: 'admin'
 end
 
 15.times do
+  url = "http://source.unsplash.com/collection/1705422/random"
+  photo_url = URI.open(url) { |resp| resp.base_uri.to_s }
+
+
   m = Mountain.new(
     user: User.all.sample(1).first,
     name: Faker::Mountain.name,
@@ -36,7 +42,7 @@ end
     trails: rand(1..3),
     difficulty: Mountain::DIFFICULTY.sample,
     price: rand(600.00..1500.00),
-    photo_url: Faker::LoremFlickr.image(size: "1024x768", search_terms: ['mountains'])
+    photo_url: photo_url
   )
   if m.save
     puts '1 mountain has risen'

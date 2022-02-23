@@ -35,6 +35,7 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'faker', '~> 2.19'
 gem 'cloudinary', '~> 1.16.0'
 gem 'unsplash'
+gem 'httpclient'
 
 group :development, :test do
   gem 'pry-byebug'
