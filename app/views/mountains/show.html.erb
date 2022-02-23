@@ -1,14 +1,15 @@
 <div class="mshow-container">
 
   <div class="vignette text-center container">
-    <img src="<%= @mountain.photo_url %>">
+    <% image_url = @mountain.photo_url.attached? ? @mountain&.photo_url : ''  %>
+    <%= image_tag image_url %>
   </div>
 
   <div class="minfo1">
     <h1 class="mt-3"><%=@mountain.name%></h1>
     <p>Located in the mountain range of <strong><%= @mountain.range %></strong>,
     in the country of <strong><%= @mountain.location %></strong>,
-    <strong><%=@mountain.name%></strong> is <strong><%= @mountain.height.floor %></strong> meters high.
+    <strong><%=@mountain.name%></strong> is <strong><%= @mountain.height&.floor %></strong> meters high.
     During your journey, you might encounter mostly <strong><%= @mountain.terrain %></strong>.
     There are <strong><%= @mountain.trails %> trails </strong> to follow, made for <strong><%= @mountain.difficulty %></strong>.</p>
     <p> It will cost you <strong><%= @mountain.price.floor %>$</strong> for 1 night.</p>
