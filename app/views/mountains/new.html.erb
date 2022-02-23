@@ -6,9 +6,9 @@
       <%= f.input :range %>
       <%= f.input :height %>
       <%= f.input :location%>
-      <%= f.input :terrain %>
+      <%= f.input :terrain, collection: Mountain::TERRAIN %>
       <%= f.input :trails %>
-      <%= f.input :difficulty %>
+      <%= f.input :difficulty, collection: Mountain::DIFFICULTY %>
       <%= f.input :price %>
       <%= f.submit %>
     <% end %>
