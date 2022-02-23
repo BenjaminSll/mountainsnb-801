@@ -32,8 +32,9 @@ end
     range: Faker::Mountain.range,
     height: rand(2000.0..8800.0),
     location: %w(Afghanistan Angola Armenia Bhutan Bolivia Canada Chile China Guatemala India Indonesia Iran Peru Russia Tanzania USA Venezuela).sample,
-    terrain: %w(rock forest ice).sample, trails: rand(1..3),
-    difficulty: ['health walk', 'breath breaker', 'sunday jogging', 'for olympic athletes and astronauts'].sample,
+    terrain: Mountain::TERRAIN.sample,
+    trails: rand(1..3),
+    difficulty: Mountain::DIFFICULTY.sample,
     price: rand(600.00..1500.00),
     photo_url: Faker::LoremFlickr.image(size: "1024x768", search_terms: ['mountains'])
   )
