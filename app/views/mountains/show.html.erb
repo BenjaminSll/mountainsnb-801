@@ -1,22 +1,17 @@
-<h1 class="text-center mt-3"><%=@mountain.name%></h1>
 <div class="mshow-container">
 
   <div class="vignette text-center container">
-    <%= cl_image_tag("qifzmmfjf1nz5mtambr8",
-          width: 400, height: 300, crop: :fill) %>
+    <%= cl_image_tag("qifzmmfjf1nz5mtambr8") %>
   </div>
 
-  <div class="minfo1 text-center">
-    <p>In the middle of: <strong><%= @mountain.range %>, <%= @mountain.location %></strong></p>
-    <p><em><%= @mountain.height&.floor %></em> meters high</p>
-    <p>You might encounter: <%= @mountain.terrain.upcase %></p>
-    <p>
-    <% if @mountain.trails.to_i > 1 %>
-        <%= @mountain.trails %> trails to follow !
-    <% else %>
-        <%= @mountain.trails %> trail to follow !
-    <% end %></p>
-    <p>Spoil: <%= @mountain.difficulty %></p>
-    <p class="prix"><%= @mountain.price.floor %> € for 2 nights</p>
+  <div class="minfo1">
+    <h1 class="mt-3"><%=@mountain.name%></h1>
+    <p>Located in the mountain range of <strong><%= @mountain.range %></strong>,
+    in the country of <strong><%= @mountain.location %></strong>,
+    <strong><%=@mountain.name%></strong> is <strong><%= @mountain.height.floor %></strong> meters high.
+    During your journey, you might encounter mostly <strong><%= @mountain.terrain %></strong>.
+    There are <strong><%= @mountain.trails %> trails </strong> to follow, made for <strong><%= @mountain.difficulty %></strong>.</p>
+    <p> It will cost you <strong><%= @mountain.price.floor %>$</strong> for 1 night.</p>
   </div>
+
 </div>
