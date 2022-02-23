@@ -13,7 +13,7 @@ class MountainsController < ApplicationController
 
   def create
     @mountain = Mountain.new(mountain_params)
-    @mountain.save
+    @mountain.user = current_user
     if @mountain.save
       redirect_to mountain_path(@mountain)
     else
