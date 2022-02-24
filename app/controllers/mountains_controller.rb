@@ -1,10 +1,6 @@
 class MountainsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:show, :index]
 
-  def index
-    @mountains = Mountain.all
-  end
-
   def show
     @mountain = Mountain.find(params[:id])
   end
