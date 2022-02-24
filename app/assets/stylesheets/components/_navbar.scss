@@ -10,3 +10,30 @@
 .navbar-lewagon .navbar-brand img {
   width: 60px;
 }
+
+form {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+form input {
+  text-indent: 0.5rem;
+}
+
+form button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
+
+#query {
+  padding: 10 3.5rem 10 1.5rem;
+  border-radius: 1.625rem;
+}
+
+.btn-primary{
+  border-radius: 1.625rem;
+
+}
