@@ -21,9 +21,9 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:booking_id])
     @booking.update(status: true)
-    redirect_to booked_path(@booking)
+    redirect_to dashboard_path
     flash[:notice] = 'Your booking has been approved'
   end
 

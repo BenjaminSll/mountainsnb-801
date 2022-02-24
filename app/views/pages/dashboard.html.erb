@@ -39,9 +39,9 @@
               <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                 <% if booking.status == false %>
                   <button type="button" class="btn btn-success">
-                    <%= link_to "Yes", booked_path(booking), method: :post %></button>
+                    <%= link_to "Yes", booking_accept_path(booking), method: :post %></button>
                   <button type="button" class="btn btn-info">
-                    <%= link_to "No", booked_path(booking), method: :delete %></button>
+                    <%#= link_to "No", booking_accept_path(booking), method: :delete %></button>
                 <% else %>
                   <p>Valid !</p>
                 <% end %>
