@@ -13,6 +13,8 @@
     During your journey, you might encounter mostly <strong><%= @mountain.terrain %></strong>.
     There are <strong><%= @mountain.trails %> trails </strong> to follow, made for <strong><%= @mountain.difficulty %></strong>.</p>
     <p> It will cost you <strong><%= @mountain.price.floor %>$</strong> for 1 night.</p>
+    <button type="button" class= "btn btn-info py-2 my-2">
+      <h3><%= link_to "Rent #{@mountain.name} !", new_mountain_booking_path(@mountain) %></h3>
+    </button>
   </div>
-
 </div>
