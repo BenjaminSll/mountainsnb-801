@@ -1,0 +1,54 @@
+<div class="container d-flex">
+  <div class="my-mountains container mt-5 col-6">
+    <h1>My Mountains</h1>
+      <% @mountains.each do |mountain| %>
+        <%= link_to mountain_path(mountain), class: "link-no-deco" do %>
+          <div class="card p-2 m-1">
+            <% if mountain.photo_url.attached? %>
+              <%= cl_image_tag(mountain.photo_url.key) %>
+            <% else %>
+              <%= image_tag('kong.jpg') %>
+            <% end %>
+            <div class="">
+              <div>
+                <h2><%= mountain.name %></h2>
+                <p><%= mountain.location %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+  <div class="my-bookings container mt-5 col-6">
+    <h1>My Bookings</h1>
+      <% @bookings.each do |booking| %>
+          <div class="card p-2 m-1">
+             <% if booking.mountain.photo_url.attached? %>
+              <%= cl_image_tag(booking.mountain.photo_url.key) %>
+            <% else %>
+              <%= image_tag('kong.jpg') %>
+            <% end %>
+            <div class="">
+              <div>
+                <h2><%= booking.mountain.name %></h2>
+                <p><%= booking.user.first_name %></p>
+                <p><%= (booking["departure"] - booking.arrival).to_i %> jour(s)</p>
+                <p><%= (booking["arrival"] - booking.arrival).to_i *  booking.mountain.price %> € </p>
+              </div>
+              <h2><%= booking.mountain.price.floor %> € /jour</h2>
+              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <% if booking.status == false %>
+                  <button type="button" class="btn btn-success">
+                    <%= link_to "Yes", booked_path(booking), method: :post %></button>
+                  <button type="button" class="btn btn-info">
+                    <%= link_to "No", booked_path(booking), method: :delete %></button>
+                <% else %>
+                  <p>Valid !</p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
