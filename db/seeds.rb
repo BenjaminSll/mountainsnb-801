@@ -5,9 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'open-uri'
-require 'httpclient'
-
 puts "clean DB"
 
 Mountain.destroy_all
@@ -28,8 +25,6 @@ User.create(email: 'admin@mountain.com', password: '123456', first_name: 'admin'
 end
 
 15.times do
-  url = "http://source.unsplash.com/collection/1705422/random"
-  photo = URI.open(url)
 
   m = Mountain.new(
     user: User.all.sample(1).first,
@@ -42,7 +37,6 @@ end
     difficulty: Mountain::DIFFICULTY.sample,
     price: rand(600.00..1500.00)
   )
-  m.photo_url.attach(io: photo, filename: "#{m.name}.jpg")
 
   if m.save
     puts '1 mountain has risen'
