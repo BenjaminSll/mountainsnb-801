@@ -39,6 +39,8 @@
       <h4><%= @mountain.price.floor %> $<span>/night</span></h4>
     </div>
 
+    <button type="button" class= "btn btn-info py-2 my-2">
+      <h3><%= link_to "Rent #{@mountain.name} !", new_mountain_booking_path(@mountain) %></h3>
+    </button>
   </div>
-
 </div>
