@@ -1,15 +1,12 @@
 require "open-uri"
 
 class Mountain < ApplicationRecord
-
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
-
-  has_one_attached :photo_url
   belongs_to :user
-
+  has_one_attached :photo_url
   before_save :add_image
 
+  geocoded_by :poi
+  after_validation :geocode, if: :will_save_change_to_address?
 
   TERRAIN = ["rock", "forest", "ice"]
   DIFFICULTY = ['kids and old hikers', 'healthy hikers', 'strong joggers', 'olympic athletes and astronauts']
