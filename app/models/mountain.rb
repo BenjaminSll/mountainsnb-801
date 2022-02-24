@@ -9,6 +9,7 @@ class Mountain < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :location, presence: true
+  validates :trails, numericality: { greater_than: 0 }
   validates :price, presence: true, numericality: { greater_than: 0 }
 
   include PgSearch::Model
@@ -29,4 +30,5 @@ class Mountain < ApplicationRecord
     photo = URI.open(url)
     self.photo_url.attach(io: photo, filename: "#{self.name}.jpg")
   end
+
 end
