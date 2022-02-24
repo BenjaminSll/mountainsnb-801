@@ -8,10 +8,10 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    # @mountain = Mountain.find(params[:mountain_id])
-    # @booking.mountain = @mountain
+    @mountain = Mountain.find(params[:mountain_id])
+    @booking.mountain = @mountain
     @booking.user = current_user
-    @booking.total_price = booking_price(@booking)
+    @booking.calcul_price
     @booking.save
     redirect_to mountain_path(@mountain)
     flash[:notice] = 'Your mountain has been reserved'
