@@ -1,10 +1,14 @@
 .mshow-container{
   padding: 50px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   grid-auto-rows: 500px;
   grid-gap: 5px;
   color: $pale_yellow
+}
+
+.minfo1 h1 {
+  letter-spacing: 3,5px;
+  font-family: "Gentium Basic";
 }
 
 .vignette {
@@ -15,7 +19,7 @@
   border-radius: 4px;
   object-fit: cover;
   width: 100%;
-  height: 50vh;
+  height: 100%;
 }
 
 .minfo1, .minfo2{
@@ -24,4 +28,55 @@
 
 .minfo1 {
   text-align: left;
+}
+
+.minfo1 p {
+  line-height: 30px;
+}
+x@
+span {
+  font-weight: 600;
+  font-size: larger;
+  letter-spacing: 3px;
+  color: $saumon;
+}
+
+/////////////
+
+.cards-show {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 40px 0px;
+}
+
+.card-show-info {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  & i {
+    font-size: 30px;
+  }
+  & p {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+.card-show-price {
+  flex-direction: row;
+  & span {
+    font-weight: regular;
+    letter-spacing: 0px;
+    color: #E27753;
+    font-size: 14px;
+    line-height: 1;
+  }
 }
