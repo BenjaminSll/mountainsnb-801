@@ -13,7 +13,7 @@ class MountainsController < ApplicationController
 
   def create
     @mountain = Mountain.new(mountain_params)
-    @mountain.save
+    @mountain.user = current_user
     if @mountain.save
       redirect_to mountain_path(@mountain)
     else
@@ -39,6 +39,6 @@ class MountainsController < ApplicationController
   private
 
   def mountain_params
-    params.require(:mountain).permit(:name, :range, :height, :location, :terrain, :trails, :difficulty, :price)
+    params.require(:mountain).permit(:name, :range, :height, :location, :terrain, :trails, :difficulty, :price, :photo_url)
   end
 end

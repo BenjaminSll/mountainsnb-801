@@ -11,13 +11,14 @@
         <div class="item">
           <%= link_to mountain_path(mountain) do %>
             <div class="item-image">
-              <%= cl_image_tag("qifzmmfjf1nz5mtambr8") %>
+                <% image_url = mountain.photo_url.attached? ? mountain&.photo_url : ''  %>
+                <%= image_tag image_url %>
             </div>
             <div class="item-text">
               <h4><%= mountain.name %></h4>
               <p>located in:</p>
               <p><%= mountain.range.upcase %></p>
-              <p><%= mountain.height.floor %> meters</p>
+              <p><%= mountain.height&.floor %> meters</p>
               <small><%= mountain.price.floor %>$</small>
             </div>
           <% end %>
