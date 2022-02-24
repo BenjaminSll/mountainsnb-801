@@ -9,4 +9,10 @@ class PagesController < ApplicationController
       @mountains = Mountain.all
     end
   end
+
+  def dashboard
+    @mountains = current_user.mountains
+    @bookings = current_user.bookings
+    @mountain = Mountain.new
+  end
 end
