@@ -16,6 +16,8 @@ class Mountain < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than: 0 }
 
   def add_image
+    return if photo_url.attached?
+
     url = "http://source.unsplash.com/collection/1705422/random"
     photo = URI.open(url)
     self.photo_url.attach(io: photo, filename: "#{self.name}.jpg")
