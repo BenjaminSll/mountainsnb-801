@@ -2,7 +2,10 @@ require "open-uri"
 
 class Mountain < ApplicationRecord
   belongs_to :user
+
   has_one_attached :photo_url
+  has_many :bookings
+
   before_save :add_image
 
   TERRAIN = ["rock", "forest", "ice"]
