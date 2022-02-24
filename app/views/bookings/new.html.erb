@@ -1,0 +1,14 @@
+<div class="container">
+  <%= simple_form_for [@mountain, @booking] do |f| %>
+      <%= f.input :arrival, label: "Arrival date", as: :date, start_year: Date.today.year,
+                                                        arrival: Date.today + 1,
+                                                        end_year: Date.today.year + 5,
+                                                        order: [:day, :month, :year] %>
+      <%= f.input :departure, label: "Departure date", as: :date, start_year: Date.today.year,
+                                                departure: Date.today.year + 5,
+                                                order: [:day, :month, :year] %>
+      <p>Total price: <%= @booking.total_price %> $</p>
+      <%= f.submit class: "btn btn-info" %>
+  <% end %>
+  </div>
+</div>
