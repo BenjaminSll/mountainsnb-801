@@ -10,8 +10,8 @@
         <div>
           <div>
             <h2><%= booking.mountain.name %></h2>
-            <p>For <%= (booking["departure"] - booking.arrival).to_i %> day(s)</p>
-            <h3><%= booking.mountain.price.floor %> € /jour</h3>
+            <p>For <%= (booking["departure"] - booking.arrival).to_i %> day(s), from <%= booking.arrival.strftime %> to <%=booking.departure.strftime %></p>
+            <h3>Total price : <%= booking.total_price.floor %> $</h3>
           </div>
           <% if booking.status == false %>
             <button type="button" class="btn btn-success">
