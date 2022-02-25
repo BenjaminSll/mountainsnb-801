@@ -5,17 +5,16 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  & ul {
+    justify-content: flex-end;
+    width: 90%;
+  }
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 60px;
 }
 
-// form {
-//   display: flex;
-//   align-items: center;
-//   position: relative;
-// }
 
 form input {
   text-indent: 0.5rem;
@@ -36,4 +35,36 @@ form button {
 .btn-primary{
   border-radius: 1.625rem;
 
+}
+
+.search-bar {
+  background-color: #f2f0ec;
+  border-radius: 50px;
+  padding: 10px 10px;
+  & form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  & .form-control {
+    padding: 10px 30px;
+    width: 400px;
+    border: 0px solid transparent;
+    &:focus {
+      border-color: transparent;
+      box-shadow: 0px 0px 0px 0px transparent;
+    }
+  }
+  & form button {
+    position: initial;
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+  }
+}
+
+
+.text-left {
+  font-size: 16px;
+  text-transform: uppercase;
 }
