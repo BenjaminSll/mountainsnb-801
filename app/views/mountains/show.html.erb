@@ -1,7 +1,9 @@
 <div class="mshow-container">
 
   <div class="vignette text-center col-6">
+
     <% image_url = @mountain.photo_url.attached? ? @mountain&.photo_url : ''%>
+
     <%= image_tag image_url %>
   </div>
 

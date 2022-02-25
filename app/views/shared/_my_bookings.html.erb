@@ -1,0 +1,25 @@
+<div class="my-bookings">
+  <h1>My Bookings</h1>
+    <% @bookings.each do |booking| %>
+      <div class="card p-2 m-1">
+        <% if booking.mountain.photo_url.attached? %>
+          <%= cl_image_tag(booking.mountain.photo_url.key) %>
+        <% else %>
+          <%= image_tag('kong.jpg') %>
+        <% end %>
+        <div>
+          <div>
+            <h2><%= booking.mountain.name %></h2>
+            <p>Rented for <%= (booking["departure"] - booking.arrival).to_i %> day(s)</p>
+            <h2>Total price : <%= booking.total_price.floor %> € </h2>
+            <% if booking.status %>
+              <p>Validated ! You can pack your stuffs</p>
+            <% else %>
+              <p>Pending</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
