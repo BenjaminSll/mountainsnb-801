@@ -25,7 +25,11 @@ class MountainsController < ApplicationController
 
   def update
     @mountain = Mountain.find(params[:id])
-    @mountain.update(params[:mountain])
+    if @mountain.update(mountain_params)
+      redirect_to dashboard_path
+    else
+      render :new
+    end
   end
 
   def destroy
