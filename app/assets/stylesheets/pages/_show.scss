@@ -18,8 +18,8 @@
 .vignette img {
   border-radius: 4px;
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  width: 500px;
+  height: 545px;
 }
 
 .minfo1, .minfo2{
@@ -28,6 +28,7 @@
 
 .minfo1 {
   text-align: left;
+  position: relative;
 }
 
 .minfo1 p {
@@ -78,5 +79,13 @@ span {
     color: #E27753;
     font-size: 14px;
     line-height: 1;
+  }
+}
+
+#rent {
+  position: absolute;
+  & h3 {
+    font-family: "Gentium Basic";
+    font-size: 1rem;
   }
 }
