@@ -1,7 +1,8 @@
 <div class="mshow-container">
 
   <div class="vignette text-center col-6">
-    <img src="<%= @mountain.photo_url %>">
+    <% image_url = @mountain.photo_url.attached? ? @mountain&.photo_url : ''%>
+    <%= image_tag image_url %>
   </div>
 
   <div class="minfo1 col-5 ms-5">
@@ -39,7 +40,7 @@
       <h4><%= @mountain.price.floor %> $<span>/night</span></h4>
     </div>
 
-    <button type="button" class= "btn btn-info py-2 my-2">
+    <button type="button" id="rent" class= "btn btn-info py-2 my-2">
       <h3><%= link_to "Rent #{@mountain.name} !", new_mountain_booking_path(@mountain) %></h3>
     </button>
   </div>
