@@ -1,0 +1,25 @@
+<div class="my-mountains">
+  <h1>My Mountains</h1>
+    <% @mountains.each do |mountain| %>
+      <div class="card p-2 m-1">
+        <% if mountain.photo_url.attached? %>
+          <%= cl_image_tag(mountain.photo_url.key) %>
+        <% else %>
+          <%= image_tag('kong.jpg') %>
+        <% end %>
+        <div>
+            <h2><%= mountain.name %></h2>
+            <p>Located in : <%= mountain.location %></p>
+            <p><%= mountain.price.floor %>$ per day</p>
+        </div>
+        <div>
+          <button type="button" class="btn btn-success">
+          <%= link_to "Show", mountain_path(mountain) %></button>
+          <button type="button" class="btn btn-success">
+          <%= link_to "Edit", edit_mountain_path(mountain) %></button>
+          <button type="button" class="btn btn-info">
+          <%= link_to "Delete", mountain_path(mountain), method: :delete %></button>
+        </div>
+      </div>
+    <% end %>
+</div>

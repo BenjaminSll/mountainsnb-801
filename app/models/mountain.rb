@@ -2,7 +2,7 @@ require "open-uri"
 
 class Mountain < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_one_attached :photo_url
 
   before_save :add_image

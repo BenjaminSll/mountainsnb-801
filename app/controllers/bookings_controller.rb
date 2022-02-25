@@ -13,11 +13,17 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.calcul_price
     if @booking.save
-      redirect_to mountain_path(@mountain)
+      redirect_to dashboard_path
     else
       raise
     end
     flash[:notice] = 'Your mountain has been reserved'
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to dashboard_path
   end
 
   def accept
