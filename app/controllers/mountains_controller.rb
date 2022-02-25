@@ -31,7 +31,7 @@ class MountainsController < ApplicationController
   def destroy
     @mountain = Mountain.find(params[:id])
     @mountain.destroy
-    redirect_to mountains_path
+    redirect_to dashboard_path
   end
 
   private

@@ -1,0 +1,27 @@
+<div class="my-requested-bookings">
+  <h1>My Requested Bookings</h1>
+    <% @requested_bookings.each do |booking| %>
+      <div class="card p-2 m-1">
+          <% if booking.mountain.photo_url.attached? %>
+          <%= cl_image_tag(booking.mountain.photo_url.key) %>
+        <% else %>
+          <%= image_tag('kong.jpg') %>
+        <% end %>
+        <div>
+          <div>
+            <h2><%= booking.mountain.name %></h2>
+            <p>For <%= (booking["departure"] - booking.arrival).to_i %> day(s), from <%= booking.arrival.strftime %> to <%=booking.departure.strftime %></p>
+            <h3>Total price : <%= booking.total_price.floor %> $</h3>
+          </div>
+          <% if booking.status == false %>
+            <button type="button" class="btn btn-success">
+              <%= link_to "Yes", booking_accept_path(booking), method: :post %></button>
+            <button type="button" class="btn btn-info">
+              <%= link_to "No", booking_path(booking), method: :delete %></button>
+          <% else %>
+            <p>Valid !</p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+</div>
